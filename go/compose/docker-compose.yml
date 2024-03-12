@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  app:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ..:/workspace:cached      
+    network_mode: service:redis
+    command: sleep infinity
+
+  redis:
+    image: redis:7
+    restart: unless-stopped

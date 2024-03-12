@@ -1,0 +1,26 @@
+{
+    "name": "proj-name",
+    // Update the 'dockerComposeFile' list if you have more compose files or use different names.
+    "dockerComposeFile": "docker-compose.yml",
+    // The 'service' property is the name of the service for the container that VS Code should
+    // use. Update this value and .devcontainer/docker-compose.yml to the real service name.
+    "service": "app",
+    // The 'workspaceFolder' property is the path VS Code should open by default when
+    // connected. Corresponds to a volume mount in .devcontainer/docker-compose.yml
+    "workspaceFolder": "/workspace",
+    // 👇 Features to add to the Dev Container. More info: https://containers.dev/implementors/features.
+	"features": {
+		"ghcr.io/devcontainers/features/git-lfs:1": {}
+	},
+    "customizations": {
+        // Configure properties specific to VS Code.
+        "vscode": {
+            "extensions": [
+                "golang.Go",
+                "eamodio.gitlens",
+                "mhutchie.git-graph",
+            ]
+        }
+    },
+    "postCreateCommand": "bash .devcontainer/postCreateCommand.sh",
+}
